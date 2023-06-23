@@ -1,4 +1,5 @@
 package za.ac.cput.domain.impl;
+
 /**
  * Librarian.java
  * Class for Librarian.
@@ -6,44 +7,75 @@ package za.ac.cput.domain.impl;
  * Date: 19 March 2023
  */
 public class Librarian  {
+
+    private int id;
     private String firstName;
     private String lastName;
-    private int contactNo;
+    private Contacts contacts;
     private String office;
-    private String tasks;
-
+    private String role;
 
 
     public Librarian() {
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public Contacts getContacts() {
+        return contacts;
+    }
+
+    public String getOffice() {
+        return office;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
     public Librarian(Builder builder) {
+        this.id = builder.id;
         this.firstName = builder.firstName;
         this.lastName = builder.lastName;
-        this.contactNo = builder.contactNo;
+        this.contacts = builder.contacts;
         this.office = builder.office;
-        this.tasks = builder.tasks;
+        this.role = builder.role;
     }
 
     @Override
-
     public String toString() {
-
         return "Librarian{" +
-                "firstName='" + firstName + '\'' +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
-                ", contactNo=" + contactNo +
+                ", contacts=" + contacts +
                 ", office='" + office + '\'' +
-                ", tasks='" + tasks + '\'' +
+                ", role='" + role + '\'' +
                 '}';
     }
 
     public static class Builder {
+        private int id;
         private String firstName;
         private String lastName;
-        private int contactNo;
+        private Contacts contacts;
         private String office;
-        private String tasks;
+        private String role;
+
+        public Builder setId(int id) {
+            this.id = id;
+            return this;
+        }
 
         public Builder setFirstName(String firstName) {
             this.firstName = firstName;
@@ -55,8 +87,8 @@ public class Librarian  {
             return this;
         }
 
-        public Builder setContactNo(int contactNo) {
-            this.contactNo = contactNo;
+        public Builder setContacts(Contacts contacts) {
+            this.contacts = contacts;
             return this;
         }
 
@@ -65,17 +97,18 @@ public class Librarian  {
             return this;
         }
 
-        public Builder setTasks(String tasks) {
-            this.tasks = tasks;
+        public Builder setRole(String role) {
+            this.role = role;
             return this;
         }
 
         public Builder copy(Librarian librarian) {
+            this.id = librarian.id;
             this.firstName = librarian.firstName;
             this.lastName = librarian.lastName;
-            this.contactNo = librarian.contactNo;
+            this.contacts = librarian.contacts;
             this.office = librarian.office;
-            this.tasks = librarian.tasks;
+            this.role = librarian.role;
 
             return this;
         }
