@@ -30,22 +30,27 @@ public class Book {
     private String language;
     private int edition;
 
-    private Book(Builder builder) {
-        this.id = builder.id;
-        this.title = builder.title;
-        this.author = builder.author;
-        this.publisher = builder.publisher;
-        this.ISBN = builder.ISBN;
-        this.imageLink = builder.imageLink;
-        this.description = builder.description;
-        this.genre = builder.genre;
-        this.language = builder.language;
-        this.edition = builder.edition;
-    }
-
     public Book() {
         // Default constructor
     }
+
+    private Book (Builder builder) {
+        this.id = id;
+        this.title = title;
+        this.author = author;
+        this.publisher = publisher;
+        this.ISBN = ISBN;
+        this.imageLink = imageLink;
+        this.description = description;
+        this.genre = genre;
+        this.language = language;
+        this.edition = edition;
+
+    }
+    public static Builder builder() {
+        return new Builder();
+    }
+
 
     public int getId() {
         return id;
@@ -107,15 +112,24 @@ public class Book {
         private String language;
         private int edition;
 
-        public Builder(String title, String author, String publisher, String ISBN) {
-            this.title = title;
-            this.author = author;
-            this.publisher = publisher;
-            this.ISBN = ISBN;
-        }
-
         public Builder id(int id) {
             this.id = id;
+            return this;
+        }
+        public Builder title(String title) {
+            this.title = title;
+            return this;
+        }
+        public Builder author(String author) {
+            this.author = author;
+            return this;
+        }
+        public Builder publisher(String publisher) {
+            this.publisher = publisher;
+            return this;
+        }
+        public Builder ISBN(String ISBN) {
+            this.ISBN = ISBN;
             return this;
         }
 
@@ -146,6 +160,20 @@ public class Book {
 
         public Book build() {
             return new Book(this);
+        }
+
+        public Builder copy(Book book) {
+            this.id = book.id;
+            this.title = book.title;
+            this.author = book.author;
+            this.publisher = book.publisher;
+            this.ISBN = book.ISBN;
+            this.imageLink = book.imageLink;
+            this.description = book.description;
+            this.genre = book.genre;
+            this.language = book.language;
+            this.edition = book.edition;
+            return this;
         }
     }
 

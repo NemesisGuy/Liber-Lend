@@ -2,18 +2,16 @@ package za.ac.cput.controllers.admin;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import za.ac.cput.domain.impl.Book;
 import za.ac.cput.domain.impl.User;
-import za.ac.cput.service.impl.IUserServiceImpl;
+import za.ac.cput.service.impl.UserServiceImpl;
 
 import java.util.ArrayList;
-import java.util.List;
 
 @RestController
 @RequestMapping("/api/admin/users")
 public class AdminUserController {
     @Autowired
-    private IUserServiceImpl userService;
+    private UserServiceImpl userService;
 
     @GetMapping ("/all")
     public ArrayList<User> getAll() {

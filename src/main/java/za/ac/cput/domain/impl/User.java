@@ -8,8 +8,13 @@ import za.ac.cput.domain.IDomain;
 
 import java.util.Objects;
 
+/**
+ * Pete Buckingham -220165289
+ * Date: April 2023
+ * User Class.java
+ */
 @Entity
-public class User implements IDomain{
+public class User implements IDomain {
     @jakarta.persistence.Id
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,19 +31,24 @@ public class User implements IDomain{
     public User() {
         // Default constructor
     }
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public int getId() {
-        return id;
-    }
 
     public User(int id, String userName, String email, String pictureUrl) {
         this.id = id;
         this.userName = userName;
         this.email = email;
         this.pictureUrl = pictureUrl;
+    }
+
+    public static Builder builder() {
+        return new Builder();
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getUserName() {
@@ -101,9 +111,6 @@ public class User implements IDomain{
                 '}';
     }
 
-    public static Builder builder() {
-        return new Builder();
-    }
     public static class Builder {
         private int id;
         private String userName;

@@ -4,6 +4,7 @@ package za.ac.cput;
  * This is the main class for the backend
  * Author: Peter Buckingham (220165289)
  * Date: 05 April 2023
+ * File: BackendApplication.java
  */
 
 import org.springframework.boot.SpringApplication;

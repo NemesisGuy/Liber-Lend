@@ -1,23 +1,31 @@
 package za.ac.cput.service.impl;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import za.ac.cput.domain.impl.Book;
-import za.ac.cput.domain.impl.User;
+import za.ac.cput.factory.BookFactory;
 import za.ac.cput.repository.IBookRepository;
-import za.ac.cput.repository.IUserRepository;
 import za.ac.cput.service.IBookService;
-import za.ac.cput.service.IUserService;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Optional;
-
+/*
+* Author: Peter Buckingham (220169289)
+* Date: 23 June 2023
+* File: BookServiceImpl.java
+* */
 @Service("bookServiceImpl")
-public class IBookServiceImpl implements IBookService {
-    private IBookRepository repository = null;
+public class BookServiceImpl implements IBookService {
+    @Autowired
+    private IBookRepository repository ;
+    @Autowired
+    private BookFactory bookFactory;
 
 
-    private IBookServiceImpl(IBookRepository repository) {
+
+
+    private BookServiceImpl(IBookRepository repository) {
 
         this.repository = repository;
     }

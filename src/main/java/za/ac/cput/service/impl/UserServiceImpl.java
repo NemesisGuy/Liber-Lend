@@ -1,51 +1,59 @@
 package za.ac.cput.service.impl;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import za.ac.cput.domain.impl.Book;
+
 import za.ac.cput.domain.impl.User;
+
+import za.ac.cput.factory.UserFactory;
 import za.ac.cput.repository.IUserRepository;
 import za.ac.cput.service.IUserService;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Optional;
 
 @Service("userServiceImpl")
-public class IUserServiceImpl implements IUserService {
-    private  IUserRepository repository = null;
+public class UserServiceImpl implements IUserService {
+    private final IUserRepository repository;
+    private final UserFactory userFactory;
 
-
-    private IUserServiceImpl(IUserRepository repository) {
-
+    @Autowired
+    private UserServiceImpl(IUserRepository repository, UserFactory userFactory) {
         this.repository = repository;
+        this.userFactory = userFactory;
     }
 
 
     @Override
     public User create(User user) {
-        return this.repository.save(user);
-
+        User newUser = userFactory.create(user);
+        return repository.save(newUser);
     }
 
     @Override
     public User read(Integer integer) {
-        Optional<User> optionalBook = this.repository.findById(integer);
-        return optionalBook.orElse(null);
+        //  Optional<Car> optionalCar = this.repository.findById(id);
+        Optional<User> optionalUser = this.repository.findById(integer);
+        return optionalUser.orElse(null);
+
+
     }
 
     @Override
     public User read(int id) {
-        Optional<User> optionalBook = this.repository.findById(id);
-        return optionalBook.orElse(null);
+        Optional<User> optionalUser = this.repository.findById(id);
+        return optionalUser.orElse(null);
     }
 
     @Override
     public User update(User user) {
-        if (this.repository.existsById(user.getId()))
-            return this.repository.save(user);
-
+        if (repository.existsById(user.getId())) {
+            User updatedUser = userFactory.create(user);
+            return repository.save(updatedUser);
+        }
         return null;
     }
+
 
     @Override
     public boolean delete(int id) {
@@ -66,11 +74,9 @@ public class IUserServiceImpl implements IUserService {
 
     @Override
     public ArrayList<User> getAll() {
+
         return (ArrayList<User>) this.repository.findAll();
     }
-
-
-    ///////////
 
 
 }

@@ -9,8 +9,7 @@ package za.ac.cput.controllers.admin;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import za.ac.cput.domain.impl.Book;
-import za.ac.cput.domain.impl.User;
-import za.ac.cput.service.impl.IBookServiceImpl;
+import za.ac.cput.service.impl.BookServiceImpl;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,10 +20,11 @@ import java.util.List;
 
 //set url
 @CrossOrigin(origins = "http://localhost:5173")
+@RequestMapping("/api/admin/books")
 public class AdminBookController {
 
     @Autowired
-    private IBookServiceImpl bookService;
+    private BookServiceImpl bookService;
 
     @GetMapping("/api/books/all")
     public List<Book> getBooks() {
@@ -76,26 +76,7 @@ public class AdminBookController {
         return readBook;
     }
 
-   /* @GetMapping("/api/cars/economy")
-    public List<Book> getEconomyCars() {
-        List<Book> economyCars = new ArrayList<>(bookService.getAll());
-        economyCars.removeIf(car -> car.getPriceGroup() != PriceGroup.ECONOMY);
-        return economyCars;
-    }
 
-    @GetMapping("/api/cars/luxury")
-    public List<Book> getLuxuryCars() {
-        List<Book> luxuryCars = new ArrayList<>(bookService.getAll());
-        luxuryCars.removeIf(car -> car.getPriceGroup() != PriceGroup.LUXURY);
-        return luxuryCars;
-    }
-
-    @GetMapping("/api/cars/special")
-    public List<Book> getSpecialCars() {
-        List<Book> specialCars = new ArrayList<>(bookService.getAll());
-        specialCars.removeIf(car -> car.getPriceGroup() != PriceGroup.SPECIAL);
-        return specialCars;
-    }*/
 
 
 }

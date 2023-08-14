@@ -11,8 +11,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import za.ac.cput.domain.impl.Book;
-import za.ac.cput.service.impl.IBookServiceImpl;
-
+import za.ac.cput.service.impl.BookServiceImpl;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,15 +25,14 @@ import java.util.List;
 public class BookController {
 
     @Autowired
-    private IBookServiceImpl bookService;
+    private BookServiceImpl bookService;
 
-/*
     @GetMapping("/api/books/all")
     public List<Book> getBooks() {
         List<Book> allBooks = new ArrayList<>(bookService.getAll());
         return allBooks;
     }
-*/
+
 
    /* @GetMapping("/api/cars/economy")
     public List<Book> getEconomyCars() {
