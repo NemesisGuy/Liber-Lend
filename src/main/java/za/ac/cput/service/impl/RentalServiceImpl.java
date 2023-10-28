@@ -4,7 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import za.ac.cput.domain.impl.Book;
 import za.ac.cput.domain.impl.Rental;
-import za.ac.cput.domain.impl.User;
+
+import za.ac.cput.domain.security.User;
 import za.ac.cput.exception.BookNotAvailableException;
 import za.ac.cput.exception.UserCantRentMoreThanOneBookException;
 import za.ac.cput.factory.RentalFactory;

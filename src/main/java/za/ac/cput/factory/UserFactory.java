@@ -1,3 +1,4 @@
+/*
 package za.ac.cput.factory;
 
 import org.springframework.stereotype.Component;
@@ -26,3 +27,4 @@ public class UserFactory {
                 .build();
     }
 }
+*/

@@ -3,7 +3,7 @@ package za.ac.cput.factory;
 import org.springframework.stereotype.Component;
 import za.ac.cput.domain.impl.Book;
 import za.ac.cput.domain.impl.Rental;
-import za.ac.cput.domain.impl.User;
+import za.ac.cput.domain.security.User;
 
 import java.time.LocalDateTime;
 import java.util.Random;

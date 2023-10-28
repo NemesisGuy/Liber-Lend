@@ -1,9 +1,11 @@
+/*
 package za.ac.cput.controllers.user;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.*;
-import za.ac.cput.domain.impl.User;
+
+import za.ac.cput.domain.security.User;
 import za.ac.cput.service.impl.UserServiceImpl;
 
 @RestController
@@ -45,3 +47,4 @@ public class UserController {
     }
 
 }
+*/

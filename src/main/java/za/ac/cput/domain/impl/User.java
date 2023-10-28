@@ -1,3 +1,4 @@
+/*
 package za.ac.cput.domain.impl;
 
 import jakarta.persistence.Entity;
@@ -8,11 +9,13 @@ import za.ac.cput.domain.IDomain;
 
 import java.util.Objects;
 
+*/
 /**
  * Pete Buckingham -220165289
  * Date: April 2023
  * User Class.java
- */
+ *//*
+
 @Entity
 public class User implements IDomain {
     @jakarta.persistence.Id
@@ -196,3 +199,4 @@ public class User implements IDomain {
 
     }
 }
+*/

@@ -1,17 +1,29 @@
 package za.ac.cput.service;
+/**
+ *
+ * Author: Peter Buckingham (220165289)
+ *
+ */
 
-import za.ac.cput.domain.impl.User;
 
-import java.util.ArrayList;
+import org.springframework.http.ResponseEntity;
+import za.ac.cput.domain.dto.LoginDto;
+import za.ac.cput.domain.dto.RegisterDto;
+import za.ac.cput.domain.security.Role;
+import za.ac.cput.domain.security.User;
 
-public interface IUserService extends IService<User, Integer> {
-    User create(User user);
+import java.util.List;
 
-    User read(int id);
 
-    User update(User user);
+public interface IUserService {
 
-    boolean delete(int id);
 
-    ArrayList<User> getAll();
+   String authenticate(LoginDto loginDto);
+   ResponseEntity<?> register (RegisterDto registerDto);
+   Role saveRole(Role role);
+
+   User saverUser (User user) ;
+   List<User> getAll();
+    User read(Integer id);
+    User update(Integer id, User user);
 }
